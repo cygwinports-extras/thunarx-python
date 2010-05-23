@@ -1,0 +1,15 @@
+--- origsrc/thunarx-python/src/thunarx-python.c	2010-05-23 01:15:21.000000000 -0500
++++ src/thunarx-python/src/thunarx-python.c	2010-05-23 03:27:39.040092900 -0500
+@@ -121,10 +121,12 @@ thunarx_python_init_python (void)
+     if (Py_IsInitialized())
+         return TRUE;
+ 
++#ifndef G_PLATFORM_WIN32
+     debug ("g_module_open " PY_LIB_LOC "/libpython" PYTHON_VERSION "." G_MODULE_SUFFIX ".1.0");  
+     libpython = g_module_open (PY_LIB_LOC "/libpython" PYTHON_VERSION "." G_MODULE_SUFFIX ".1.0", 0);
+     if (!libpython)
+         g_warning ("g_module_open libpython failed: %s", g_module_error());
++#endif
+   
+     debug ("Py_Initialize");
+     Py_Initialize();

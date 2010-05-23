@@ -1,0 +1,27 @@
+--- origsrc/thunarx-python/src/Makefile.am	2010-05-23 01:15:21.000000000 -0500
++++ src/thunarx-python/src/Makefile.am	2010-05-23 02:25:50.151956600 -0500
+@@ -29,17 +29,24 @@ thunarx_python_la_LDFLAGS =						\
+ 	-avoid-version							\
+ 	-export-dynamic							\
+ 	-module								\
++	-no-undefined							\
+ 	$(THUNARX_LDFLAGS)						\
+ 	$(PYTHON_LDFLAGS)						\
+ 	$(PYGTK_LDFLAGS)						\
+ 	$(GNOMEPYTHON_LIBS)
+ 
++thunarx_python_la_LIBADD =						\
++	$(THUNARX_LIBS)							\
++	$(PYTHON_LIBS)							\
++	$(PYGTK_LIBS)
++
+ pyexec_LTLIBRARIES = thunarx.la
+ pyexecdir = $(THUNARX_LIBDIR)/thunarx-python
+ 
+ thunarx_la_LDFLAGS =							\
+ 	-module								\
+ 	-avoid-version							\
++	-no-undefined							\
+ 	-export-symbols-regex						\
+ 	initthunarx							\
+ 	$(THUNARX_LDFLAGS)						\

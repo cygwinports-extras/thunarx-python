@@ -1,0 +1,13 @@
+GIT_URI="http://github.com/adamplumb/thunarx-python.git"
+GIT_TAG=${P//./-}
+inherit pygtk xfce4 git
+
+DESCRIPTION="Thunar Python extension loader"
+HOMEPAGE="http://github.com/adamplumb/thunarx-python"
+
+PATCH_URI="
+	0.2.1-cygwin-libpython.patch
+	0.2.1-no-undefined.patch
+"
+
+DIFF_EXCLUDES="configure.ac"
