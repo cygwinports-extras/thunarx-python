@@ -1,0 +1,21 @@
+--- origsrc/thunarx-python/docs/Makefile.am	2011-01-19 02:29:14.000000000 -0600
++++ src/thunarx-python/docs/Makefile.am	2011-01-19 03:03:26.476278500 -0600
+@@ -30,7 +30,6 @@ HTML_DATA =						\
+ 	html/index.html					\
+ 	html/index.sgml					\
+ 	html/thunarx-python-overview.html \
+-	html/thunarx-python-overview-example.html \
+ 	html/thunarx-python-class-reference.html \
+ 	html/thunarx-python-provider-reference.html \
+ 	html/class-thunarx-python-menu-provider.html  \
+@@ -82,6 +81,9 @@ build_stamp: $(REFERENCE_DEPS) reference
+ 
+ pdf: $(REFERENCE_DEPS) reference/builddate.xml
+ 	xsltproc --nonet --xinclude -o thunarx-python-ref.fo \
+-		$(PDF_STYLE) reference/thunarx-python-ref.xml
++		 --path $(BUILDDIR)/reference:$(srcdir)/reference \
++		 --stringparam gtkdoc.bookname "thunarx-python" \
++		 --stringparam gtkdoc.version ${REF_VERSION} \
++		$(PDF_STYLE) $(srcdir)/reference/thunarx-python-ref.xml
+ 	pdfxmltex thunarx-python-ref.fo >output </dev/null
+ endif
