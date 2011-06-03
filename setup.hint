@@ -1,4 +1,4 @@
 category: Xfce
-requires: libglib2.0_0 libgtk2.0_0 python python-gobject2.0 python-gtk2.0 Thunar
+requires: libglib2.0_0 libgtk2.0_0 python python-gobject python-gtk2.0 Thunar
 sdesc: "Thunar Python extension loader"
 ldesc: "These bindings allow one to create python plugins for Thunar."
