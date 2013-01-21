@@ -1,6 +1,11 @@
 inherit pygtk xfce4
 
-DESCRIPTION="Thunar Python extension loader"
+NAME="thunarx-python"
+VERSION=0.3.0
+RELEASE=2
+CATEGORY="Xfce"
+SUMMARY="Thunar Python extension loader"
+DESCRIPTION="These bindings allow one to create python plugins for Thunar."
 HOMEPAGE="http://github.com/adamplumb/thunarx-python"
 SRC_URI="http://git.xfce.org/bindings/thunarx-python/snapshot/${P}.tar.bz2"
 PATCH_URI="
@@ -10,5 +15,7 @@ PATCH_URI="
 "
 
 DIFF_EXCLUDES="configure.ac"
+
+REQUIRES="python-gobject python-gtk2.0"
 
 CYGCONF_ARGS="--enable-gtk-doc"
